@@ -6,3 +6,4 @@ livraria/.metadata/
 livraria/.settings/
 livraria/.project
 *.project
+/build/
