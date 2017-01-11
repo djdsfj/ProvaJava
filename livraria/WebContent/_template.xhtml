@@ -11,7 +11,27 @@
 		<div id="cabecalho">
 			<h:panelGrid columns="2">
 				<h:graphicImage library="img" style="max-width: 100px; max-height: 100px" name="Avanade.png" />
-							
+					
+				<h:form>  
+    <p:growl id="menu"/>
+ 
+    <p:menubar>
+        <p:submenu label="Usuarios" icon="">
+		<p:menuitem value="Consultar" actionListener="#{}" icon="ui-icon-disk" update=""/>			
+           </p:submenu>
+         <p:submenu label="Administrador" icon="">
+		 <p:submenu label="Usuarios" icon="">
+		 <p:menuitem value="Salvar" actionListener="#{}" icon="ui-icon-disk" update=""/>
+		<p:menuitem value="Editar" actionListener="#{}" icon="ui-icon-disk" update=""/>
+		<p:menuitem value="Excluir" actionListener="#{}" icon="ui-icon-disk" update=""/>
+		 </p:submenu>
+		 <p:submenu label="Consulta" icon="">
+		 <p:menuitem value="Autores" outcome="/autor.xhtml"/>
+		 <p:menuitem value="livro" outcome="/livro.xhtml"/>
+        </p:submenu>
+		 </p:submenu>       
+    </p:menubar>
+</h:form>
 				<h:form rendered="#{usuarioLogado != null}" style="position:absolute; right: 10px">
 					<p:layout fullPage="true" id="basic" style="min-height:200px" value="#{temaBean.tema}">
 						<p:layoutUnit position="center">
