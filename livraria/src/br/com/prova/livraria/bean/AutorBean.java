@@ -127,4 +127,25 @@ public class AutorBean {
 			JSFUtil.adicionarMensagemErro(ex.getMessage());
 		}
 	}
+	public void prepararEditar() {
+		try{
+			autoridDAO daoA= new autoridDAO();
+			comboautorid = daoA.listar();
+		} catch (SQLException ex) {
+		ex.printStackTrace();
+			JSFUtil.adicionarMensagemErro(ex.getMessage());
+		}
+		}		
+
+	public String Editar() {
+		System.out.println("Editando autor " + this.autor.getNome());
+		try{
+			autoridDAO daoA= new autoridDAO();
+			daoA.editar(autor);
+			itens = daoA.listar();
+			JSFUtil.adicionarMensagemSucesso("Autor editado com sucesso");
+		} catch (SQLException ex) {
+		ex.printStackTrace();
+			JSFUtil.adicionarMensagemErro(ex.getMessage());
+}
 }
